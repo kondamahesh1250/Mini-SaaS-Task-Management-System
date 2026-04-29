@@ -1,14 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { useEffect } from "react";
 
 export default function Landing() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-indigo-200">
-
       <div className="h-[90vh] flex flex-col justify-center items-center text-center px-6">
-        
         <h1 className="text-5xl font-extrabold text-gray-800 mb-6 leading-tight">
-          Manage Your Tasks <span className="text-blue-600">Efficiently 🚀</span>
+          Manage Your Tasks{" "}
+          <span className="text-blue-600">Efficiently 🚀</span>
         </h1>
 
         <p className="text-gray-600 mb-8 max-w-2xl text-lg">
@@ -31,7 +40,6 @@ export default function Landing() {
             Login
           </Link>
         </div>
-
       </div>
     </div>
   );

@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
 
 export default function Login() {
   const [data, setData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
 
   const handleLogin = async () => {
     try {
@@ -13,15 +20,14 @@ export default function Login() {
       alert("Login successful");
       navigate("/dashboard");
     } catch (error) {
-      console.log(error?.response)
-      alert("Login failed! "+(error.response?.data?.msg || ""));
+      console.log(error?.response);
+      alert("Login failed! " + (error.response?.data?.msg || ""));
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200">
       <div className="bg-white p-8 rounded-2xl w-96 shadow-lg border border-gray-100">
-        
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Welcome Back
         </h2>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -6,20 +6,26 @@ export default function Register() {
   const [data, setData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
+
   const handleRegister = async () => {
     try {
       await API.post("/auth/signup", data);
       alert("Registration successful");
       navigate("/login");
     } catch (error) {
-      alert("Registration failed! "+(error.response?.data?.msg || ""));
+      alert("Registration failed! " + (error.response?.data?.msg || ""));
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-emerald-200">
       <div className="bg-white p-8 rounded-2xl w-96 shadow-lg border border-gray-100">
-        
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Create Account
         </h2>
