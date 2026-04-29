@@ -1,4 +1,4 @@
-# 🧠 Mini SaaS Task Management Application
+# 🧠 Mini SaaS Task Management System
 
 A full-stack Task Management System built using **Node.js, Express, PostgreSQL, Sequelize, React, and Tailwind CSS**. This application allows users to securely register, log in, and manage their own tasks.
 
@@ -8,33 +8,33 @@ A full-stack Task Management System built using **Node.js, Express, PostgreSQL, 
 
 ### 🔐 Authentication
 
-* User Signup & Login
-* Password hashing using bcrypt
-* JWT-based authentication
-* Protected API routes
+- User Signup & Login
+- Password hashing using bcrypt
+- JWT-based authentication
+- Protected API routes
 
 ### 📋 Task Management
 
-* Create tasks
-* View only your tasks
-* Toggle task status (Pending ↔ Completed)
-* Delete tasks
-* Multi-user support (each user has isolated data)
+- Create tasks
+- View only your tasks
+- Toggle task status (Pending ↔ Completed)
+- Delete tasks
+- Multi-user support (each user has isolated data)
 
 ### 🎨 Frontend
 
-* React + Tailwind CSS
-* Clean and responsive UI
-* Axios API integration
-* Token stored in localStorage
+- React + Tailwind CSS
+- Clean and responsive UI
+- Axios API integration
+- Token stored in localStorage
 
 ### 🛠 Backend
 
-* Node.js + Express
-* Sequelize ORM with PostgreSQL
-* MVC folder structure
-* Middleware for authentication
-* Error handling
+- Node.js + Express
+- Sequelize ORM with PostgreSQL
+- MVC folder structure
+- Middleware for authentication
+- Error handling
 
 ---
 
@@ -43,7 +43,7 @@ A full-stack Task Management System built using **Node.js, Express, PostgreSQL, 
 ```
 Mini-SaaS-Task-App/
 │
-├── backend/
+├── Mini-SaaS-Task-Backend/
 │   ├── controllers/
 │   ├── middlewares/
 │   ├── models/
@@ -52,7 +52,7 @@ Mini-SaaS-Task-App/
 │   ├── .env
 │   └── server.js
 │
-└── frontend/
+└── Mini-SaaS-Task-Frontend/
     ├── src/
     │   ├── components/
     │   ├── pages/
@@ -67,9 +67,9 @@ Mini-SaaS-Task-App/
 
 Make sure you have installed:
 
-* Node.js
-* PostgreSQL
-* npm or yarn
+- Node.js
+- PostgreSQL
+- npm or yarn
 
 ---
 
@@ -78,7 +78,7 @@ Make sure you have installed:
 ### 1. Navigate to backend
 
 ```
-cd backend
+cd Mini-SaaS-Task-Backend
 ```
 
 ### 2. Install dependencies
@@ -121,7 +121,7 @@ http://localhost:5000
 ### 1. Navigate to frontend
 
 ```
-cd frontend
+cd Mini-SaaS-Task-Frontend
 ```
 
 ### 2. Install dependencies
@@ -148,15 +148,15 @@ http://localhost:5173
 
 ### Auth
 
-* `POST /api/auth/signup`
-* `POST /api/auth/login`
+- `POST /api/auth/signup`
+- `POST /api/auth/login`
 
 ### Tasks (Protected)
 
-* `GET /api/tasks`
-* `POST /api/tasks`
-* `PUT /api/tasks/:id`
-* `DELETE /api/tasks/:id`
+- `GET /api/tasks`
+- `POST /api/tasks`
+- `PUT /api/tasks/:id`
+- `DELETE /api/tasks/:id`
 
 ---
 
@@ -182,8 +182,10 @@ Authorization: Bearer <token>
 POST /api/auth/signup
 {
   "email": "test@gmail.com",
-  "password": "123456"
+  "password": "1234"
 }
+
+Note: If you using Live URL, above user details are exists in the database. So you can login directly.
 ```
 
 ### Login → get token
@@ -196,17 +198,17 @@ Authorization: Bearer <token>
 
 ---
 
-## 🚀 Deployment (Optional)
+## 🚀 Deployment
 
-* Backend → Render / Railway
-* Frontend → Vercel / Netlify
-* Database → Supabase / Neon
+- Backend → Render
+- Frontend → Vercel
+- Database → Render
 
 ---
 
 ## 📌 Important Notes
 
-* Each user can only access their own tasks
-* JWT must be included for all task routes
-* Do not expose `.env` file publicly
-* Ensure backend is running before frontend
+- Each user can only access their own tasks
+- JWT must be included for all task routes
+- Do not expose `.env` file publicly
+- Ensure backend is running before frontend
