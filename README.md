@@ -185,7 +185,8 @@ POST /api/auth/signup
   "password": "1234"
 }
 
-Note: If you using Live URL, above user details are exists in the database. So you can login directly.
+Note: If you using Live URL, above user details are exists in the database. 
+So you can login directly.
 ```
 
 ### Login → get token
